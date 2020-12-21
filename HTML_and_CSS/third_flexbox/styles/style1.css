@@ -1,0 +1,227 @@
+@import url("reset.css");
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #2C2C2C;
+    background-color: #fff;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+p {
+    padding-bottom: 50px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #2C2C2C;
+
+}
+
+/* Container
+=============================*/
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Header
+=============================*/
+.header {
+    width: 100%;
+}
+
+.header_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.header_logo {
+    padding-bottom: 40px;
+}
+
+.header_logo-main {
+    font-size: 80px;
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+}
+
+.header_logo-color {
+    color: #4bcaff;
+}
+
+/* Nav
+=============================*/
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #35444F;
+}
+
+.nav_link {
+
+    padding: 25px 30px;
+
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+
+    border-left: 1px solid #fff;
+}
+
+.nav_link:hover {
+    background-color: #222F3A;
+}
+
+/* Menu_Article
+=============================*/
+.menu_article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 320px;
+    height: 400px;
+
+    list-style-type: none;
+
+    border: 1px solid #000;
+
+}
+
+.li_article {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+
+    padding-left: 20px;
+
+    font-size: 27px;
+    font-weight: 400;
+    color: #495863;
+}
+
+.li_article:hover {
+    padding-left: 60px;
+    background-color: #DBDBDB;
+}
+
+/* Why Ramda
+=============================*/
+.whyRamda_content {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 60px;
+
+}
+
+/* Aside
+=============================*/
+.aside {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+    max-width: 70%;
+
+}
+
+.aside_content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+
+    height: 530px;
+
+    border: 1px solid #000;
+    transition: 1s;
+}
+
+.aside_img {
+    transition: 1s;
+}
+
+.aside_img:hover {
+    transform: scale(1.2);
+}
+
+/* Main
+=============================*/
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    margin: 50px 0;
+    margin-bottom: -50px;
+}
+
+/* Footer
+=============================*/
+.footer_nav {
+    margin: 50px 0;
+    padding: 15px 40px;
+
+    display: flex;
+    justify-content: space-between;
+
+    list-style-type: none;
+    cursor: default;
+
+    background: #999999;
+
+}
+
+.footer_nav-item {
+
+
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #0C1927;
+}
+
+.footer_nav-item:hover {
+    color: #3181A6;
+}
+
+.footer_copy {
+    padding-left: 80px;
+}
+
+.footer_copy:hover {
+    color: #3181A6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

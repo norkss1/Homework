@@ -1,0 +1,48 @@
+
+.best-images {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+.best-images-item {
+    margin-bottom: 10px;
+}
+
+.best-images-item img {
+    width: 100%;
+}
+
+.best-images-item--width1 { width: 378px; }
+.best-images-item--width2 { width: 364px; }
+
+.best-images-item--height2 { height: 240px; }
+.best-images-item--height3 { height: 290px; }
+.best-images-item--height4 { height: 360px; }
+
+.item-middle-wrapper {
+    display: flex;
+    width: 370px;
+}
+
+.item-small-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: 363px;
+}
+
+.item-small {
+    width: 119px;
+    height: 92px;
+    border-bottom: 3px solid #fff;
+}
+
+.item-small img {
+    width: 100%;
+    height: 100%;
+}
+
+
+

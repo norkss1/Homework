@@ -1,0 +1,58 @@
+
+.form-checkbox-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #434343;
+}
+
+
+/* Для отступа от верхнего form-element */
+.form-checkbox-wrapper {
+    position: relative;
+    margin-top: 12px;
+    margin-right: 8px;
+}
+
+.form-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+
+.form-checkbox-text span {
+    color: #3CB878;
+
+    transition: color .2s linear;
+}
+
+.form-checkbox-text span:hover {
+    color: #01813F;
+    text-decoration: underline;
+}
+
+.form-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.form-checkbox+label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #F2F2F2;
+    margin-right: 8px;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    transition: border-color .3s linear;
+}
+
+.form-checkbox:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #000;
+}

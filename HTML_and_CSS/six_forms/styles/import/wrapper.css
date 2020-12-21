@@ -1,0 +1,13 @@
+.wrapper {
+    background: url("/images/background.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    width: 100%;
+    height: 100vh;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #fff;
+}

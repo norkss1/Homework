@@ -1,0 +1,27 @@
+@import "import/line.css";
+@import "import/header.css";
+@import "import/welcome.css";
+@import "import/form.css";
+@import "import/button.css";
+@import "import/orline.css";
+@import "import/form-element.css";
+@import "import/form-checkbox.css";
+
+.wrapper {
+    background: url("../images/background.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    width: 100%;
+    height: 100vh;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #fff;
+}
+
+
+.form-checkbox:checked+label::before {
+    background-image: url("../images/checked.svg");
+}

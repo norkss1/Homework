@@ -1,0 +1,24 @@
+.welcome-text, a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #fff;
+
+    transition: color .2s linear;
+}
+
+.welcome-text > a:hover {
+    color: #3CB878;
+}
+
+.welcome-text::before {
+    content: "";
+    display: inline-block;
+    align-content: center;
+    width: 1px;
+    height: 19px;
+    margin-right: 25px;
+    background-color: rgba(255, 255, 255, 0.9);
+}

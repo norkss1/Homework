@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework1_alert-prompt-confirm</title>
+</head>
+<body>
+
+<script>
+
+    let name = prompt('Write your name please');
+    let age = +(prompt('Write your age please'));
+
+    if (name === '') {
+        prompt('Write your name please', name);
+    } else if (isNaN(age)) {
+        prompt('Write your age please', age);
+    }
+
+    const welcome = 'Welcome, ' + name;
+
+    if (age < 18) {
+        alert('You are not allowed to visit this website');
+    } else if (age > 22) {
+        alert(welcome);
+    } else {
+        const choice = confirm('Are you sure you want to continue?');
+        if (choice) {
+            alert(welcome);
+        } else {
+            alert('You are not allowed to visit this website');
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

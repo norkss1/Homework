@@ -1,0 +1,85 @@
+
+.navbar {
+    width: 100%;
+    background-color: rgba(94, 93, 88, 0.6);
+    position: absolute;
+}
+
+.navbar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 120px;
+}
+
+.navbar-logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 233px;
+}
+
+.navbar-logo-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 56px;
+    height: 67px;
+
+    background: url("../../images/navbar/navbar-logo.png") no-repeat;
+    background-size: cover;
+
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.navbar-logo-text {
+    margin-right: 35px;
+    margin-left: 6px;
+
+    font-size: 32px;
+    font-weight: 700;
+    color: #18CFAB;
+}
+
+.navbar-logo-text-start {
+    font-size: 32px;
+    font-weight: 400;
+    color: #fff;
+}
+
+/* Nav
+=======================================================*/
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-element {
+    padding-right: 21px;
+}
+
+.nav-link {
+    padding-bottom: 46px;
+
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+
+    transition: color .3s linear, border-bottom .1s linear;
+}
+
+.nav-link:hover {
+    color: #18CFAB;
+    border-bottom: 2px solid #18CFAB;
+}

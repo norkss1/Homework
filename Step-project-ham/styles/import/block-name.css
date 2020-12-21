@@ -1,0 +1,49 @@
+
+.block-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 80px auto;
+}
+
+.block-name-title {
+    margin-bottom: 26px;
+
+    font-size: 36px;
+    font-weight: 400;
+    color: #4E4E4E;
+}
+
+.block-line {
+    width: 80px;
+    height: 2px;
+
+    background-color: #18CFAB;
+}
+
+.block-line.top {
+    margin-left: -13px;
+}
+
+.block-line.bottom {
+    margin-top: 3px;
+    margin-left: 13px;
+}
+
+/*Block-name  Our Amazing Work
+=======================================================*/
+.block-name.work {
+    margin-top: 0;
+    padding: 0;
+}
+
+
+/*Block-name  What People Say About theHam
+=======================================================*/
+.block-people-say {
+    margin-top: 10px;
+    color: #fff;
+}
+
