@@ -101,6 +101,10 @@
     align-items: center;
 }
 
+.btn-2 {
+    margin-left: 3px;
+}
+
 .main-img-btn {
     display: flex;
     justify-content: center;

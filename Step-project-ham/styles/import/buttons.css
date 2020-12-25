@@ -7,7 +7,7 @@
     width: 170px;
     height: 60px;
 
-    margin-top: 135px;
+
     padding-top: 22px;
 
     border-radius: 4px;
@@ -28,6 +28,12 @@
 .btn-blue {
     border: 1px solid #00CBF6;
     background-color: #00CBF6;
+}
+
+/* Header - Btn
+ =======================================================*/
+.btn-header {
+    margin-top: 135px;
 }
 
 

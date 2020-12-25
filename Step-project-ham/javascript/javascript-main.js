@@ -16,6 +16,7 @@ tab.forEach(function (elem) {
 
 
 // Переменные для  сортировки картинок в блоке -Our Amazing Work-
+const workBtn = document.querySelectorAll('.work-btn');
 const buttonAll = document.getElementById('all');
 const buttonGraphicDesign = document.getElementById('graphicDesign');
 const buttonWebDesign = document.getElementById('webDesign');
@@ -23,40 +24,62 @@ const buttonLandingPages = document.getElementById('landingPages');
 const buttonWordPress = document.getElementById('wordpress');
 const workMainImg = document.querySelectorAll('.work-main-img');
 
-let workImage = document.querySelectorAll('.work-image');
-let graphicDesign = document.querySelectorAll('.graphic-design');
-let webDesign = document.querySelectorAll('.web-design');
-let landingPage = document.querySelectorAll('.landing-page');
-let wordPress = document.querySelectorAll('.wordpress');
+let workImage,
+    graphicDesign,
+    webDesign,
+    landingPage,
+    wordPress;
+
+function recordingThemeVar () {
+    workImage = document.querySelectorAll('.work-image');
+    graphicDesign = document.querySelectorAll('.graphic-design');
+    webDesign = document.querySelectorAll('.web-design');
+    landingPage = document.querySelectorAll('.landing-page');
+    wordPress = document.querySelectorAll('.wordpress');
+}
+
+recordingThemeVar();
+
 
 // Сортировка картинок в блоке -Our Amazing Work-
-const btnAll = document.querySelector('.work-btn:first-child');
+function closeWorkBtn() {
+    for (let i = 0; i < workBtn.length; i++) {
+        workBtn[i].style.borderColor = '#DADADA';
+        workBtn[i].style.color = '#717171';
+    }
+}
 
 function closeWorkImg() {
-    btnAll.style.borderColor = '#DADADA'; // задаю кнопке All цвет (для симуляции активированной кнопки)
-    btnAll.style.color = '#717171';
+    buttonAll.style.borderColor = '#DADADA'; // задаю кнопке All цвет (для симуляции не активированной кнопки)
+    buttonAll.style.color = '#717171';
 
     for (let i = 0; i < workImage.length; i++) {
         workImage[i].style.display = 'none';
     }
+    closeWorkBtn();
 }
 
-function showCurrentTab(currentBtn) {
-    for (let i = 0; i < currentBtn.length; i++) {
-        currentBtn[i].style.display = 'inline';
+function showCurrentTab(currentTab) {
+    for (let i = 0; i < currentTab.length; i++) {
+        currentTab[i].style.display = 'inline';
     }
 }
+
+// function workEvent ()
 
 function event(button, tab) {
     // функция при клике проверяет нажата ли кнопка All, если да, то показывает все картинки, если нажата другая кнопка,
     // то удаляет все блоки с картинками и после этого формирует блоки с картинками с выбраной темой
     button.addEventListener('click', function () {
         if (button === buttonAll) {
+            closeWorkBtn();
             document.querySelector('.work-main-img').style.display = 'flex';
-            btnAll.style.borderColor = '#18CFAB';
-            btnAll.style.color = '#18CFAB';
+            buttonAll.style.borderColor = '#18CFAB';
+            buttonAll.style.color = '#18CFAB';
         } else {
             closeWorkImg();
+            button.style.borderColor = '#18CFAB';
+            button.style.color = '#18CFAB';
         }
         showCurrentTab(tab);
     });
@@ -70,7 +93,7 @@ function eventGo() {
     event(buttonWordPress, wordPress);
 }
 
-eventGo();
+eventGo(); // тут функцию визываем для отработки при начальных загруженных картинках
 
 
 // Подгрузка по нажатии кнопки #workImageBtn еще 12 картинок
@@ -82,12 +105,12 @@ let quantityClick = 0;
 workImageBtn.addEventListener('click', function () {
 
     function randNumberImg() {
+        let choiceImg;
         for (let i = 0; i < 12; i++) {
-            let ind = Math.floor(Math.random() * 4);
-            let choiceImg = 3;
-            choiceImg = choiceImg + i;
+            let ind = Math.floor(Math.random() * 4); // Находит число 0-4 при выборе случайной темы для картинок в массиве classNameList
+            choiceImg = i + 1;
             if (choiceImg > 10) {
-                choiceImg = choiceImg - 6;
+                choiceImg = choiceImg - 3;
             }
 
             let div = document.createElement('div');
@@ -100,13 +123,16 @@ workImageBtn.addEventListener('click', function () {
             barWrapper.style.display = 'none';
 
             // Перезаписываем массив с созданными новыми блоками и запускаем функцию eventGo для отображения этих блоков
-            workImage = document.querySelectorAll('.work-image');
-            graphicDesign = document.querySelectorAll('.graphic-design');
-            webDesign = document.querySelectorAll('.web-design');
-            landingPage = document.querySelectorAll('.landing-page');
-            wordPress = document.querySelectorAll('.wordpress');
-
+            recordingThemeVar();
             eventGo();
+
+            // for (let i = 0; i < workImage.length; i++) {
+            //     workImage[i].style.display = 'none';
+            // }
+            // for (let i = 0; i < graphicDesign.length; i++) {
+            //     graphicDesign[i].style.display = 'inline';
+            // }
+
 
             // Считаем сколько раз нажали кнопку, если уже 2, то убираем кнопку
             if (quantityClick === 2) {
@@ -114,7 +140,6 @@ workImageBtn.addEventListener('click', function () {
             }
         }
     }
-
 
     // Задержка срабатывания подгрузки картинок
     let barWrapper = document.querySelector('.bar-wrapper');

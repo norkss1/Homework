@@ -13,12 +13,10 @@
     height: 120px;
 }
 
-.navbar-logo {
+.navbar-logo a {
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    width: 233px;
 }
 
 .navbar-logo-img {
@@ -31,6 +29,7 @@
 
     background: url("../../images/navbar/navbar-logo.png") no-repeat;
     background-size: cover;
+    cursor: pointer;
 
     font-size: 40px;
     font-weight: 700;
@@ -41,12 +40,15 @@
     margin-right: 35px;
     margin-left: 6px;
 
+    cursor: pointer;
+
     font-size: 32px;
     font-weight: 700;
     color: #18CFAB;
 }
 
 .navbar-logo-text-start {
+    cursor: pointer;
     font-size: 32px;
     font-weight: 400;
     color: #fff;
