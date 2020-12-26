@@ -32,10 +32,13 @@
     color: #717171;
 }
 
+.work-btn.active {
+    border-color: #18CFAB;
+    color: #18CFAB;
+}
+
 .work-btn:first-child {
     padding: 0 28px;
-    border: 1px solid #18CFAB;
-    color: #18CFAB;
 }
 
 .work-btn:focus {

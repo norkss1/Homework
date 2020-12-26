@@ -2,6 +2,8 @@
 .people-say {
     position: relative;
 
+    margin-top: 90px;
+
     width: 100%;
     height: 100vh;
     min-height: 950px;
@@ -126,7 +128,7 @@
     position: relative;
 
     margin: 0 auto;
-    padding: 30px 65px;
+    padding: 0 65px;
 
     width: 550px;
 }
@@ -211,7 +213,10 @@
 
 .customer-icon-small:focus {
     outline: none;
-    transform: translateY(-10px);
+}
+
+.slick-current {
+    transform: translateY(-20px);
 }
 
 .customer-icon-small-img {

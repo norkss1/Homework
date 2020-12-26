@@ -81,7 +81,6 @@
 .work-image-btn-content span {
     padding-left: 15px;
 
-    font-size: 14px;
     font-weight: 700;
     color: #fff;
 
@@ -93,7 +92,8 @@
  =======================================================*/
 .best-images-btn-wrapper {
     position: relative;
-    margin: 50px auto 80px;
+    margin: 20px auto;
+    padding: 50px 0 80px;
 }
 
 .best-images-btn {
@@ -127,7 +127,7 @@
 
 .best-images-btn-content span {
     padding-left: 15px;
-    font-size: 14px;
+
     font-weight: 700;
     color: #fff;
     cursor: pointer;

@@ -24,34 +24,28 @@ const buttonLandingPages = document.getElementById('landingPages');
 const buttonWordPress = document.getElementById('wordpress');
 const workMainImg = document.querySelectorAll('.work-main-img');
 
-let workImage,
-    graphicDesign,
-    webDesign,
-    landingPage,
-    wordPress;
+let workImage;
 
-function recordingThemeVar () {
+function reloadArrImg() {
     workImage = document.querySelectorAll('.work-image');
-    graphicDesign = document.querySelectorAll('.graphic-design');
-    webDesign = document.querySelectorAll('.web-design');
-    landingPage = document.querySelectorAll('.landing-page');
-    wordPress = document.querySelectorAll('.wordpress');
 }
+reloadArrImg();
 
-recordingThemeVar();
+
+
+let currentButton = buttonAll;
+let currentTab = '.work-image';
 
 
 // Сортировка картинок в блоке -Our Amazing Work-
 function closeWorkBtn() {
     for (let i = 0; i < workBtn.length; i++) {
-        workBtn[i].style.borderColor = '#DADADA';
-        workBtn[i].style.color = '#717171';
+        workBtn[i].classList.remove('active');
     }
 }
 
 function closeWorkImg() {
-    buttonAll.style.borderColor = '#DADADA'; // задаю кнопке All цвет (для симуляции не активированной кнопки)
-    buttonAll.style.color = '#717171';
+    buttonAll.classList.remove('active'); // задаю кнопке All цвет (для симуляции не активированной кнопки)
 
     for (let i = 0; i < workImage.length; i++) {
         workImage[i].style.display = 'none';
@@ -59,38 +53,44 @@ function closeWorkImg() {
     closeWorkBtn();
 }
 
-function showCurrentTab(currentTab) {
-    for (let i = 0; i < currentTab.length; i++) {
-        currentTab[i].style.display = 'inline';
+function showCurrentTab(tab) {
+    elements = document.querySelectorAll(tab);
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.display = 'inline';
     }
 }
 
-// function workEvent ()
 
 function event(button, tab) {
-    // функция при клике проверяет нажата ли кнопка All, если да, то показывает все картинки, если нажата другая кнопка,
-    // то удаляет все блоки с картинками и после этого формирует блоки с картинками с выбраной темой
     button.addEventListener('click', function () {
-        if (button === buttonAll) {
-            closeWorkBtn();
-            document.querySelector('.work-main-img').style.display = 'flex';
-            buttonAll.style.borderColor = '#18CFAB';
-            buttonAll.style.color = '#18CFAB';
-        } else {
-            closeWorkImg();
-            button.style.borderColor = '#18CFAB';
-            button.style.color = '#18CFAB';
-        }
-        showCurrentTab(tab);
+        sortImages(button, tab);
     });
 }
 
+// функция при клике проверяет нажата ли кнопка All, если да, то показывает все картинки, если нажата другая кнопка,
+// то удаляет все блоки с картинками и после этого формирует блоки с картинками с выбраной темой
+function sortImages(button, tab) {
+    if (button === buttonAll) {
+        closeWorkBtn();
+        document.querySelector('.work-main-img').style.display = 'flex';
+        buttonAll.classList.add('active');
+    } else {
+        closeWorkImg();
+        buttonAll.classList.remove('active');
+        button.classList.add('active');
+    }
+    showCurrentTab(tab);
+    currentButton = button;
+    currentTab = tab;
+}
+
+
 function eventGo() {
-    event(buttonAll, workImage);
-    event(buttonGraphicDesign, graphicDesign);
-    event(buttonWebDesign, webDesign);
-    event(buttonLandingPages, landingPage);
-    event(buttonWordPress, wordPress);
+    event(buttonAll, '.work-image');
+    event(buttonGraphicDesign, '.graphic-design');
+    event(buttonWebDesign, '.web-design');
+    event(buttonLandingPages, '.landing-page');
+    event(buttonWordPress, '.wordpress');
 }
 
 eventGo(); // тут функцию визываем для отработки при начальных загруженных картинках
@@ -105,10 +105,10 @@ let quantityClick = 0;
 workImageBtn.addEventListener('click', function () {
 
     function randNumberImg() {
-        let choiceImg;
+        let choiceImg = 0;
         for (let i = 0; i < 12; i++) {
             let ind = Math.floor(Math.random() * 4); // Находит число 0-4 при выборе случайной темы для картинок в массиве classNameList
-            choiceImg = i + 1;
+            choiceImg++;
             if (choiceImg > 10) {
                 choiceImg = choiceImg - 3;
             }
@@ -122,16 +122,8 @@ workImageBtn.addEventListener('click', function () {
             workImageBtn.style.visibility = 'visible';
             barWrapper.style.display = 'none';
 
-            // Перезаписываем массив с созданными новыми блоками и запускаем функцию eventGo для отображения этих блоков
-            recordingThemeVar();
-            eventGo();
-
-            // for (let i = 0; i < workImage.length; i++) {
-            //     workImage[i].style.display = 'none';
-            // }
-            // for (let i = 0; i < graphicDesign.length; i++) {
-            //     graphicDesign[i].style.display = 'inline';
-            // }
+            reloadArrImg();
+            sortImages(currentButton, currentTab);
 
 
             // Считаем сколько раз нажали кнопку, если уже 2, то убираем кнопку
@@ -188,6 +180,7 @@ $(document).ready(function () {
     });
 })
 
+
 function clickSmallImg(itemImg) {
     // функция для перехода на нужную картинку в big-slider при клике в маленьком slider
     const index = itemImg.getAttribute('data-slick-index');
@@ -196,72 +189,104 @@ function clickSmallImg(itemImg) {
 }
 
 
+
+
 // Masonry
+let $bestImages = $('.best-images-wrapper');
 $(document).ready(function () {
 
-    const $bestImages = $('.best-images');
 
-    $bestImages.imagesLoaded(function () {
-        $bestImages.masonry({
-            itemSelector: '.best-images-item',
-            columnWidth: 370,
-            gutter: 20
-        })
+    $bestImages.masonry({
+        columnWidth: '.best-images-sizer',
+        itemSelector: '.best-images-item',
+        percentPosition: true,
+        gutter: '.best-images-gutter',
     })
 
-    const $itemMidWrap = $('.item-middle-wrapper').masonry({
-        itemSelector: '.item-middle',
+
+    let $itemMidWrap = $('.item-middle-wrapper').masonry({
         columnWidth: 180,
+        itemSelector: '.item-middle',
         gutter: 3
     })
 
-    $('#bestImagesBtn').on('click', function () {
+    let $itemSmallWrap = $('.item-small-wrapper').masonry({
+        columnWidth: 120,
+        itemSelector: '.item-small',
+        percentPosition: true,
+        gutter: '.best-images-gutter-small',
+    });
 
-        const bestImgBtnWrap = document.querySelector('.best-images-btn-wrapper');
 
-        function createImgMansory() {
-            let elems = [getItemElement(), getItemElement(), getItemElement(), getItemElement(), getItemElement(), getItemElement(), getItemElement()];
-            let $elems = $(elems);
+    // layout Masonry after each image loads
+    $bestImages.imagesLoaded().progress(function () {
+        $bestImages.masonry();
+    });
+    $itemMidWrap.imagesLoaded().progress(function () {
+        $itemMidWrap.masonry();
+    });
+    $itemSmallWrap.imagesLoaded().progress(function () {
+        $itemSmallWrap.masonry();
+    });
+});
 
-            $bestImages.imagesLoaded(function () {
-                $bestImages.append($elems).masonry('appended', $elems);
-            })
+
+$(function () {
+    const hiddenBestImages = $('.best-images-wrapper-hidden').toArray();
+    const loadbestImages = $('#bestImagesBtn');
+    const bestImgBtnWrap = document.querySelector('.best-images-btn-wrapper');
+    let countСlickBtn = 0;
+
+    $(loadbestImages).on('click', function () {
+        countСlickBtn = countСlickBtn + 1;
+
+        // $(hiddenBestImages).removeClass('best-images-wrapper-hidden').slideDown( "1000" );
+        function createImgMasonry() {
+            if (countСlickBtn === 1) {
+                for (let i = 0; i < 15; i++) {
+                    $(hiddenBestImages[i]).removeClass('best-images-wrapper-hidden').slideDown("1000");
+
+                    $('.best-images-wrapper').masonry({
+                        columnWidth: '.best-images-sizer',
+                        itemSelector: '.best-images-item',
+                        percentPosition: true,
+                        gutter: '.best-images-gutter',
+                    });
+                }
+            } else if (countСlickBtn === 2) {
+                for (let i = 15; i <= 30; i++) {
+                    $(hiddenBestImages[i]).removeClass('best-images-wrapper-hidden').slideDown("1000");
+
+                    $('.best-images-wrapper').masonry({
+                        columnWidth: '.best-images-sizer',
+                        itemSelector: '.best-images-item',
+                        percentPosition: true,
+                        gutter: '.best-images-gutter',
+                    });
+                }
+            }
 
             bestImgBtnWrap.querySelector('.best-images-btn').style.visibility = 'visible';
             bestImgBtnWrap.querySelector('.preloader').style.display = 'none';
-        }
 
+            if (countСlickBtn === 2) {
+                $("#bestImagesBtn").fadeOut('slow');
+            }
+        }
 
         // Задержка срабатывания подгрузки картинок
-        function firstMansoryBtn() {
-            setTimeout(() => createImgMansory(), 2000);
+        function firstMasonryBtn() {
+            setTimeout(() => createImgMasonry(), 3000);
+
         }
 
-        function secondMansoryBtn() {
+        function secondMasonryBtn() {
             bestImgBtnWrap.querySelector('.best-images-btn').style.visibility = 'hidden';
             bestImgBtnWrap.querySelector('.preloader').style.display = 'block';
         }
 
-        firstMansoryBtn();
-        secondMansoryBtn();
+        firstMasonryBtn();
+        secondMasonryBtn();
     });
 });
 
-function getItemElement() {
-
-    let elem = document.createElement('div');
-    let wRand
-    let countW = 0;
-    for (let i = 0; i <= 3; i++) {
-        wRand = Math.random();
-        countW++;
-    }
-    let hRand = Math.random();
-    let widthClass = countW <= 2 ? 'best-images-item--width1' : countW > 2 ? 'best-images-item--width2' : '';
-    let heightClass = hRand > 0.85 ? 'best-images-item--height4' : hRand > 0.6 ? 'best-images-item--height3' : hRand > 0.35 ? 'best-images-item--height2' : '';
-    elem.className = 'best-images-item ' + widthClass + ' ' + heightClass;
-
-    let randImg = Math.floor(Math.random() * 30 + 1);
-    elem.innerHTML = `<img src=\"images/gallery-of-best-images/new-picture/${randImg}.jpg\" alt=\"#\"/>`;
-    return elem;
-}
