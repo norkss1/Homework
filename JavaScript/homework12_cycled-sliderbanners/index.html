@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/main-style.css">
+
+    <title>Homework12_cycled-sliderbanners</title>
+</head>
+<body>
+
+<!-- Теоретические вопросы:
+
+1. Опишите своими словами разницу между функциями setTimeout() и setInterval().
+2. Что произойдет, если в функцию setTimeout() передать нулевую задержку? Сработает ли она мгновенно, и почему?
+3. Почему важно не забывать вызывать функцию clearInterval(), когда ранее созданный цикл запуска вам уже не нужен?
+
+1 - setTimeout() вызывает переданную функцию как аргумент 1 раз через указанное время во втором аргументе, а функция setInterval() вызывает постоянно через указанный промежуток времени
+2 - при передаче в setTimeout() нудевой задержки функция отработает мгновенно, но после выполнения текущего кода
+3 - потому что setInterval() будет отрабатывать пока полностью не загрузиться память и не произойдет ошибка
+-->
+
+<div class="images-wrapper">
+    <img src="images/1.jpg" alt="image of game" class="image-to-show active" />
+    <img src="images/2.jpg" alt="image of game" class="image-to-show" />
+    <img src="images/3.JPG" alt="image of game" class="image-to-show" />
+    <img src="images/4.png" alt="image of game" class="image-to-show" />
+</div>
+
+<div class="button-wrapper">
+    <div id="button-stop" class="button stop">
+        <a href="#" class="button-1"><span class="link-content">Прекратить</span></a>
+    </div>
+    <div id="button-go" class="button go">
+        <a href="#" class="button-1"><span class="link-content">Возобновить показ</span></a>
+    </div>
+</div>
+
+
+<script src="scripts/script.js"></script>
+
+</body>
+</html>
