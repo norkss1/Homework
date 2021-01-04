@@ -6,18 +6,27 @@ body {
     width: 400px;
     height: 400px;
 
-    visibility: hidden;
+    display: none;
 }
 
 .images-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .image-to-show.active {
-    visibility: visible;
+    display: inline;
 }
+
+
+
+
+
+
+
+
+
 
 
 .button-wrapper {

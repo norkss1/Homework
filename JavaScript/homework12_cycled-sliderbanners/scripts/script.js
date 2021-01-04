@@ -2,29 +2,34 @@ const imageOfGameArr = document.querySelectorAll('.image-to-show');
 const buttonStop = document.getElementById('button-stop');
 const buttonGo = document.getElementById('button-go');
 
-let i = 0;
+let currentTimeSlide = 0;
+let checkRunSlider;
 
 function startRunImg() {
-    if (i <= 3) {
-        imageOfGameArr[i].classList.remove('active');
-        i++;
+    if (currentTimeSlide <= 3) {
+        imageOfGameArr[currentTimeSlide].classList.remove('active');
+        currentTimeSlide++;
 
-        if (i === 4) {
-            i = 0;
-            imageOfGameArr[i].classList.add('active');
+        if (currentTimeSlide === 4) {
+            currentTimeSlide = 0;
+            imageOfGameArr[currentTimeSlide].classList.add('active');
         }
-        imageOfGameArr[i].classList.add('active');
+        imageOfGameArr[currentTimeSlide].classList.add('active');
     }
+    checkRunSlider = true;
 }
 
 let timerId = setInterval(startRunImg, 3000);
 
 buttonStop.addEventListener('click',  function () {
     clearInterval(timerId);
+    checkRunSlider = false;
 });
 
 buttonGo.addEventListener('click',  function () {
-    timerId = setInterval(startRunImg, 3000);
+    if (checkRunSlider === false) {
+        timerId = setInterval(startRunImg, 3000);
+    }
 });
 
 
