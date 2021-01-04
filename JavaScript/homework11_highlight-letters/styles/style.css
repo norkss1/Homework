@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: space-around;
 }
+
 .btn{
     border: none;
     border-radius: 20px;
@@ -14,6 +15,11 @@
     background-color: #000000;
     cursor: pointer;
 }
+
+.btn.active {
+    background-color: blue;
+}
+
 .btn:active,
 .btn:focus{
     outline: none;

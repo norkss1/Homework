@@ -1,19 +1,11 @@
-const buttonArr = document.querySelectorAll('.btn');
-let currentBtn = buttonArr[0];
-
 
 function press(event) {
-
+    const buttonArr = document.querySelectorAll('.btn');
     for (let i = 0; i < buttonArr.length; i++) {
-
-        if (buttonArr[i] !== currentBtn) {
-            currentBtn.style.backgroundColor = 'black'
-        }
-        if (event.code === 'Enter' || event.code === `Key${buttonArr[i].textContent}`) {
-
-            buttonArr[i].style.backgroundColor = 'blue';
-            currentBtn = buttonArr[i];
-            return currentBtn;
+        if (buttonArr[i].innerHTML === event.key || buttonArr[i].innerHTML === event.key.toUpperCase()) {
+            buttonArr[i].classList.add('active');
+        } else {
+            buttonArr[i].classList.remove('active');
         }
     }
 }
