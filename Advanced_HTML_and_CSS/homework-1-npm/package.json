@@ -1,0 +1,21 @@
+{
+  "name": "project-x",
+  "version": "1.0.0",
+  "description": "Roman Kalychak, fe_23",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "eslint": "^7.17.0",
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "moment": "^2.29.1"
+  }
+}
