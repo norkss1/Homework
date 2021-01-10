@@ -1,0 +1,48 @@
+@import "style.css";
+
+.main-wrapper {
+    background-image: url(../images/background-second.jpg);
+}
+
+.header-icon {
+    background: url("../images/logo/logo 4.png") no-repeat;
+    background-size: cover;
+}
+
+.header-title {
+    color: black;
+}
+
+.header-subtitle {
+    color: black;
+}
+
+.header-contacts-mail {
+    color: black;
+}
+
+.header-contacts-phone {
+    color: black;
+}
+
+.tours-title {
+    color: black;
+}
+
+.copyright-text {
+    color: black;
+}
+
+.double-border-button {
+    color: black;
+}
+
+
+.double-border-button {
+    border: 2px solid #000;
+    color: #000;
+}
+
+.double-border-button:hover:after {
+    border-color: #000;
+}
