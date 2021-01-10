@@ -7,8 +7,12 @@
     "start": "node app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Roman Kalychak",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/norkss1/Homework/tree/master/Advanced_HTML_and_CSS/homework-1-npm"
+  },
   "devDependencies": {
     "browser-sync": "^2.26.13",
     "eslint": "^7.17.0",
