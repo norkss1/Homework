@@ -1,0 +1,20 @@
+@import "../css/reset.css";
+@import "variables";
+@import "mixins";
+
+body {
+  background-color: $white;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+@import "navbar";
+@import "main-picture";
+@import "our-posts";
+@import "instagram";
+@import "footer";

@@ -1,0 +1,96 @@
+
+.our-posts {
+  margin: 66px 0 34px;
+
+  @media (max-width: $screen-sm) {
+    margin: 38px 0 15px;
+  }
+
+  .our-posts-title {
+    @include h1-title;
+
+    @media (max-width: $screen-sm) {
+      font-size: $font-size--normal;
+    }
+  }
+
+  .our-posts-item-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 24px;
+
+    @media (max-width: $screen-md) {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .our-posts-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      margin-bottom: 32px;
+      width: 49%;
+
+      @media (max-width: $screen-md) {
+        justify-content: flex-start;
+        width: 80%;
+      }
+
+      @media (max-width: $screen-sm) {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 70%;
+      }
+
+      .item-image {
+        min-width: 160px;
+        min-height: 140px;
+        margin-right: 20px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+
+  .item-title {
+    @include Roboto-700;
+    font-size: $font-size--h2;
+    color: $text-color--primary;
+
+    @media (max-width: $screen-sm) {
+      padding-top: 15px;
+    }
+  }
+
+  .item-subtitle {
+    padding: 10px 0;
+    @include Roboto-400;
+    font-size: $font-size--small;
+    color: $text-color--tertiary;
+
+    span {
+      padding: 0 5px;
+    }
+  }
+
+  .item-text {
+    @include Roboto-400;
+    font-size: $font-size--normal;
+    line-height: 26px;
+    color: $text-color--secondary;
+
+    @media (max-width: $screen-sm) {
+     display: none;
+    }
+  }
+}

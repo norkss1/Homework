@@ -1,0 +1,43 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin Roboto-400 {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin Roboto-700 {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+
+@mixin h1-title {
+  @include Roboto-700;
+  font-size: $font-size--h1;
+  text-transform: uppercase;
+  color: $text-color--primary;
+}
+
+@mixin footer-border-color {
+  .footer-icon-rss {
+    border-color: #F8902E;
+  }
+  .footer-icon-facebook {
+    border-color: #39599F;
+  }
+  .footer-icon-twitter {
+    border-color: #45B0E3;
+  }
+  .footer-icon-dribbble {
+    border-color: #D97AB0;
+  }
+  .footer-icon-pinterest {
+    border-color: #CC212C;
+  }
+}

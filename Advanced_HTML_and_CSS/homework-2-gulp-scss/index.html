@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="dist/css/style.min.css">
+
+    <title>Homework-2-gulp-scss</title>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="container">
+        <div class="navbar-list-wrapper">
+            <ul class="navbar-list navbar__list--hidden" id="navbarList">
+                <li class="navbar-item"><a href="#">Home</a></li>
+                <li class="navbar-item"><a href="#">About Us</a></li>
+                <li class="navbar-item"><a href="#">Our journal</a></li>
+                <li class="navbar-item"><a href="#">Projects</a></li>
+                <li class="navbar-item"><a href="#">News</a></li>
+                <li class="navbar-item"><a href="#">Features</a></li>
+                <li class="navbar-item"><a href="#">Contact</a></li>
+            </ul>
+
+            <div class="navbar__burger-toggle">
+                <div class="navbar__burger active" type="button" id="burgerToggle">
+                    <span class="burger__item">Menu</span>
+                </div>
+                <div class="navbar__cross" type="button" id="crossToggle">
+                    <span class="cross__item">Menu</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="main-pictures">
+    <div class="container">
+        <img class="main-pictures-content" src="./dist/images/main-picture/main.png" alt="main-img">
+    </div>
+</section>
+
+<section class="our-posts">
+    <div class="container">
+        <div class="our-posts-items">
+            <h1 class="our-posts-title">- our Recent posts</h1>
+            <div class="our-posts-item-wrapper">
+
+                <div class="our-posts-item">
+                    <div class="item-image">
+                        <img src="./dist/images/our-posts/1.png" alt="our-posts-1">
+                    </div>
+                    <div class="item-content">
+                        <h2 class="item-title">Aenean Adipiscing Etiam Vestibulum</h2>
+                        <p class="item-subtitle">Photography, Journal <span>/</span> 9 Comments</p>
+                        <p class="item-text">Etiam porta sem malesuada euismod. Aenean leo quam. Pellentesque ornare sem
+                            lacinia quam
+                            venenatis
+                            vestibulum.</p>
+                    </div>
+                </div>
+
+                <div class="our-posts-item">
+                    <div class="item-image">
+                        <img src="./dist/images/our-posts/2.png" alt="our-posts-2">
+                    </div>
+                    <div class="item-content">
+                        <h2 class="item-title">Aenean Adipiscing Etiam Vestibulum</h2>
+                        <p class="item-subtitle">Photography, Journal <span>/</span> 9 Comments</p>
+                        <p class="item-text">Etiam porta sem malesuada euismod. Aenean leo quam. Pellentesque ornare sem
+                            lacinia quam
+                            venenatis
+                            vestibulum.</p>
+                    </div>
+                </div>
+
+                <div class="our-posts-item">
+                    <div class="item-image">
+                        <img src="./dist/images/our-posts/3.png" alt="our-posts-3">
+                    </div>
+                    <div class="item-content">
+                        <h2 class="item-title">Aenean Adipiscing Etiam Vestibulum</h2>
+                        <p class="item-subtitle">Photography, Journal <span>/</span> 9 Comments</p>
+                        <p class="item-text">Etiam porta sem malesuada euismod. Aenean leo quam. Pellentesque ornare sem
+                            lacinia quam
+                            venenatis
+                            vestibulum.</p>
+                    </div>
+                </div>
+
+                <div class="our-posts-item">
+                    <div class="item-image">
+                        <img src="./dist/images/our-posts/4.png" alt="our-posts-4">
+                    </div>
+                    <div class="item-content">
+                        <h2 class="item-title">Aenean Adipiscing Etiam Vestibulum</h2>
+                        <p class="item-subtitle">Photography, Journal <span>/</span> 9 Comments</p>
+                        <p class="item-text">Etiam porta sem malesuada euismod. Aenean leo quam. Pellentesque ornare sem
+                            lacinia quam
+                            venenatis
+                            vestibulum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="instagram">
+    <div class="container">
+
+        <div class="instagram-wrapper">
+            <div class="instagram-header">
+                <h2>- Latest Instagram Shots</h2>
+                <a href="#">go to our instagram page -</a>
+            </div>
+
+            <div class="instagram-pictures">
+                <div class="pictures-item">
+                    <img src="./dist/images/instagram/1.png" alt="instagram-image-1">
+                </div>
+                <div class="pictures-item">
+                    <img src="./dist/images/instagram/2.png" alt="instagram-image-2">
+                </div>
+                <div class="pictures-item">
+                    <img src="./dist/images/instagram/3.png" alt="instagram-image-3">
+                </div>
+                <div class="pictures-item">
+                    <img src="./dist/images/instagram/4.png" alt="instagram-image-4">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <h2 class="footer-title">- get in touch with us -</h2>
+            <p class="footer-text">Maecenas faucibus molli interdum. Cras mattis consectetur purus sitor amet sed donec malesuada
+                ullamcorper odio. Curabitur blandit tempus porttitor vollisky inceptos mollisestor.</p>
+            <div class="footer-icons">
+                <div class="footer-icon footer-icon-rss">
+                    <img src="./dist/images/footer/rss.png" alt="rss">
+                </div>
+                <div class="footer-icon footer-icon-facebook">
+                    <img src="./dist/images/footer/facebook.png" alt="facebook">
+                </div>
+                <div class="footer-icon footer-icon-twitter">
+                    <img src="./dist/images/footer/twitter.png" alt="twitter">
+                </div>
+                <div class="footer-icon footer-icon-dribbble">
+                    <img src="./dist/images/footer/dribbble.png" alt="dribbble">
+                </div>
+                <div class="footer-icon footer-icon-pinterest">
+                    <img src="./dist/images/footer/pinterest.png" alt="pinterest">
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <a class="copyright-address" href="#">Moonshine St. 14-05 Light City<span>/</span></a>
+                <a class="copyright-phone" href="#">T. +00 (123) 456 78 90<span>/</span></a>
+                <a class="copyright-mail" href="#">first.last@email.com</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./dist/js/js.min.js"></script>
+
+</body>
+</html>
