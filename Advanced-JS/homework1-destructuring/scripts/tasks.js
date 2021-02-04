@@ -1,26 +1,13 @@
 // Деструктуризация необходима для минимизации кода, также для того чтобы разбить сложные структуры (объекты, массивы ит.д.) на более простые (переменные, строки...)
 
 
-
-
 // Task-1
 const clients1 = ["Гилберт", "Сальваторе", "Пирс", "Соммерс", "Форбс", "Донован", "Беннет"];
 const clients2 = ["Пирс", "Зальцман", "Сальваторе", "Майклсон"];
 
 
-function uniqueValue(arr) {
-    let result = [];
-
-    for (let str of arr) {
-        if (!result.includes(str)) {
-            result.push(str);
-        }
-    }
-    return result;
-}
-
-const resultArr = uniqueValue([...clients1, ...clients2]);
-console.log('Task - 1:', resultArr);
+let clientAll = new Set([...clients1, ...clients2]);
+console.log('Task - 1:', clientAll);
 
 
 // Task-2
@@ -75,16 +62,14 @@ const charactersShortInfo = characters.map(function ({name, lastName, age}) {
 console.log('Task - 2:', charactersShortInfo);
 
 
-
 // Task-3
 const user1 = {
     name: "John",
     years: 30
 };
 
-const {name, years: age, isAdmin = false } = user1;
+const {name, years: age, isAdmin = false} = user1;
 console.log('Task - 3:', name, age, isAdmin);
-
 
 
 // Task-4
@@ -123,7 +108,6 @@ const {...fullProfile} = {...satoshi2018, ...satoshi2019, ...satoshi2020};
 console.log('Task - 4:', fullProfile);
 
 
-
 // Task-5
 const books = [{
     name: 'Harry Potter',
@@ -141,9 +125,8 @@ const bookToAdd = {
     author: 'George R. R. Martin'
 }
 
-const booksNew =  [...books, bookToAdd]
+const booksNew = [...books, bookToAdd]
 console.log('Task - 5:', booksNew)
-
 
 
 // Task-6
@@ -152,9 +135,8 @@ const employee = {
     surname: 'Klichko'
 }
 
-const employeeNew = {...employee, age: 35, salary:2500};
+const employeeNew = {...employee, age: 35, salary: 2500};
 console.log('Task - 6:', employeeNew)
-
 
 
 // Task-7
