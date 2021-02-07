@@ -6,7 +6,7 @@ const clients1 = ["Гилберт", "Сальваторе", "Пирс", "Сом�
 const clients2 = ["Пирс", "Зальцман", "Сальваторе", "Майклсон"];
 
 
-let clientAll = new Set([...clients1, ...clients2]);
+let [...clientAll] = new Set([...clients1, ...clients2]);
 console.log('Task - 1:', clientAll);
 
 
