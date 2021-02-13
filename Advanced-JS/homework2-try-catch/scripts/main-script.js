@@ -28,45 +28,44 @@ const books = [
     }
 ];
 
-function makeBookView({author, name, price}) {
-    return (`
-    Название книги: ${name}, 
-    Автор: ${author}, 
-    Цена: ${price}`);
-}
+const root = document.getElementById('root');
+const ul = document.createElement('ul');
+root.prepend(ul);
 
-function createList() {
-    const root = document.getElementById('root');
-    const ul = document.createElement('ul');
-    root.prepend(ul);
 
-    for (const {author, name, price} of books) {
-        try {
-            if (!author) {
-                throw 'author'
-            } else if (!name) {
-                throw 'name'
-            } else if (!price) {
-                throw 'price'
-            }
+function validate(obj) {
 
-            if (author && name && price) {
-                let li = document.createElement('li');
-                li.textContent = makeBookView({author, name, price});
-                ul.append(li)
-            }
-        } catch (e) {
-            if (e === "author") {
-                alert(`Error: Свойства "author" у книги ${name} c ценой ${price} не существует`);
-            }
-            if (e === "name") {
-                alert(`Error: Свойства "name" у автора ${author} c ценой ${price} не существует`);
-            }
-            if (e === "price") {
-                alert(`Error: Свойства "price" у автора ${author} с именем ${name} не существует`);
-            }
-        }
+    const {author, name, price} = obj;
+
+    if (!author) {
+        throw new Error(`Свойства "author" у книги ${name} c ценой ${price} не существует`);
+    }
+    if (!name) {
+        throw new Error(`Свойства "name" у автора ${author} c ценой ${price} не существует`);
+    }
+    if (!price) {
+        throw new Error(`Свойства "price" у автора ${author} с именем ${name} не существует`);
+    }
+
+    if (author && name && price) {
+        return true;
     }
 }
 
-createList();
+function createList(arr) {
+    let li;
+    arr.forEach((item) => {
+        if (validate(item)) {
+            li = document.createElement('li');
+            li.textContent = (`
+            Название книги: ${item.name} --- Автор: ${item.author} --- Цена: ${item.price}`);
+        }
+        ul.append(li)
+    })
+}
+
+try {
+    createList(books);
+} catch (error) {
+    console.error(`${error.name} ${error.message}`)
+}
