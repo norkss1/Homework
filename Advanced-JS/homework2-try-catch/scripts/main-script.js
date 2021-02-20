@@ -46,17 +46,13 @@ function validate(obj) {
     if (!price) {
         throw new Error(`Свойства "price" у автора ${author} с именем ${name} не существует`);
     }
-
-    if (author && name && price) {
-        return true;
-    }
+    return true;
 }
 
 function createList(arr) {
-    let li;
+    let li = document.createElement('li');
     arr.forEach((item) => {
         if (validate(item)) {
-            li = document.createElement('li');
             li.textContent = (`
             Название книги: ${item.name} --- Автор: ${item.author} --- Цена: ${item.price}`);
         }
