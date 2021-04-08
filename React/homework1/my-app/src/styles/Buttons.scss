@@ -1,0 +1,124 @@
+
+// Btn - Open - Modal
+.openFirstModal{
+  box-sizing: border-box;
+  padding: 20px 0;
+  margin-right: 50px;
+
+  width: 200px;
+
+  border-radius: 5px;
+  border: none;
+
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: font-size .2s linear;
+
+  &:hover {
+    color: yellow;
+    font-size: 13px;
+
+  }
+}
+
+.openSecondModal{
+  box-sizing: border-box;
+  padding: 20px 0;
+  margin-right: 30px;
+
+  width: 200px;
+
+  border-radius: 5px;
+  border: 2px solid black;
+
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+  transition: font-size .2s linear;
+
+  &:hover {
+    color: green;
+    font-size: 13px;
+
+  }
+}
+
+
+
+// Modal-Btn
+
+.containerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5px;
+  padding-bottom: 20px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modalBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 15px 40px;
+  max-width: 100px;
+
+  border-radius: 5px;
+  border: none;
+
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+  transition: font-size .2s linear;
+}
+
+.modalBtn:focus {
+  outline: none;
+}
+
+
+.modalBtn-cancel {
+margin-left: 10px;
+
+}
+.modalBtn1-cancel:focus {
+  outline: none;
+}
+
+
+
+
+
+//--------------------Modal-theme-1
+.containerButton_1 {
+  background-color: #e74c3c;
+}
+
+
+.modalBtn1-ok {
+
+}
+
+
+//--------------------Modal-theme-2
+.containerButton_2 {
+  background-color: #bd4ec7;
+}
+
+
+
+
+
+
+
+
+
