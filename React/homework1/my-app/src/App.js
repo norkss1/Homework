@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from './Button';
-import Modal from './Modal';
-import '../styles/style.scss'
-import '../styles/Buttons.scss'
+import Button from './components/Button';
+import Modal from './components/Modal';
+import './styles/style.scss'
+import './styles/Buttons.scss'
 
-const backgroundColorBrn = ['#000', '#fff', '#b3382c', '#7c32ab']
+const backgroundColor = ['#000', '#fff', '#b3382c', '#7c32ab', 'rgba(0,0,0,.4)']
 const textBtn = ['Open first modal', 'Open second modal'];
 
 
@@ -27,10 +27,13 @@ class App extends React.Component {
     }
 
     switchSecondModal = () => {
-
         this.setState({
             openSecond: !this.state.openSecond,
         })
+    }
+
+    switchBackgroundRoot = (val) => {
+        document.getElementById("root").style.backgroundColor = val;
     }
 
 
@@ -38,19 +41,20 @@ class App extends React.Component {
         const {openFirst, openSecond} = this.state;
 
         if (!openFirst && !openSecond) {
+            this.switchBackgroundRoot(backgroundColor[1]);
             return (
                 <>
                     <div className={"container"}>
                         <Button
                             className="openFirstModal"
-                            backgroundColor={backgroundColorBrn[0]}
+                            backgroundColor={backgroundColor[0]}
                             text={textBtn[0]}
                             onClick={this.switchFirstModal}
                         />
 
                         <Button
                             className="openSecondModal"
-                            backgroundColor={backgroundColorBrn[1]}
+                            backgroundColor={backgroundColor[1]}
                             text={textBtn[1]}
                             onClick={this.switchSecondModal}
                         />
@@ -59,39 +63,36 @@ class App extends React.Component {
             )
         }
 
-        if (openFirst) {
-            return (
-                <>
-                    <Modal
-                        theme={1}
-                        header={'Do you want delete this file?'}
-                        closeButton={false}
-                        text={'Once you delete this file, it won\'t be possible to undo this action. Are you sure you want to delete it?'}
-                        onBackClick={this.switchFirstModal}
-                        actions={
-                            <div className="containerButton containerButton_1">
-                                <Button
-                                    className="modalBtn modalBtn1-ok"
-                                    backgroundColor={backgroundColorBrn[2]}
-                                    text={"Ok"}
-                                    onClick={this.switchFirstModal}
-                                />
-                                <Button
-                                    className="modalBtn modalBtn-cancel modalBtn1-cancel"
-                                    backgroundColor={backgroundColorBrn[2]}
-                                    text={"Cancel"}
-                                    onClick={this.switchFirstModal}
-                                />
-                            </div>
-                        }
-                    />
-                </>
-            )
-        }
+        this.switchBackgroundRoot(backgroundColor[4]);
 
-        if (openSecond) {
-            return (
-                <>
+        return (
+            <> {openFirst &&
+                <Modal
+                    theme={1}
+                    header={'Do you want delete this file?'}
+                    closeButton={false}
+                    text={'Once you delete this file, it won\'t be possible to undo this action. Are you sure you want to delete it?'}
+                    onBackClick={this.switchFirstModal}
+                    actions={
+                        <div className="containerButton containerButton_1">
+                            <Button
+                                className="modalBtn modalBtn1-ok"
+                                backgroundColor={backgroundColor[2]}
+                                text={"Ok"}
+                                onClick={this.switchFirstModal}
+                            />
+                            <Button
+                                className="modalBtn modalBtn-cancel modalBtn1-cancel"
+                                backgroundColor={backgroundColor[2]}
+                                text={"Cancel"}
+                                onClick={this.switchFirstModal}
+                            />
+                        </div>
+                    }
+                />
+                }
+
+                {openSecond &&
                     <Modal
                         theme={2}
                         header={'Вы выбрали белую кнопку, круто !!!'}
@@ -102,24 +103,22 @@ class App extends React.Component {
                             <div className="containerButton containerButton_2">
                                 <Button
                                     className="modalBtn modalBtn2-ok"
-                                    backgroundColor={backgroundColorBrn[3]}
+                                    backgroundColor={backgroundColor[3]}
                                     text={"Ok"}
                                     onClick={this.switchSecondModal}
                                 />
                                 <Button
                                     className="modalBtn modalBtn-cancel modalBtn2-cancel"
-                                    backgroundColor={backgroundColorBrn[3]}
+                                    backgroundColor={backgroundColor[3]}
                                     text={"Cancel"}
                                     onClick={this.switchSecondModal}
                                 />
                             </div>
                         }
                     />
-                </>
-
-            )
-        }
-
+                }
+            </>
+        )
     }
 }
 
