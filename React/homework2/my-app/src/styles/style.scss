@@ -1,0 +1,39 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("./background.jpg");
+  background-size: cover;
+
+  #root {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+    }
+  }
+}
+
+#background-root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transition: background-color .3s linear;
+}
+
+
+
