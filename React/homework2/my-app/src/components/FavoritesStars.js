@@ -3,25 +3,26 @@ import '../styles/FavoritesStars.scss'
 import PropTypes from 'prop-types';
 
 const FavoritesStars = (props) => {
-    const {addFavorites, onAddFavorites, id} = props;
+    const {id, isFav, onClick} = props;
 
 
     return (<div className={"product-card-star"}>
-
-            {(addFavorites.includes(id)) ? (
-                <input type={"image"} src={"./images/favorites-on.png"} alt={""} onClick={() => {
-                    onAddFavorites(addFavorites.filter((n) => n !== id));
-                }}/>) : (<input type={"image"} src={"./images/favorites-off.png"} alt={""} onClick={() => {
-                onAddFavorites([...addFavorites, id]);
-            }}/>)}
+            {isFav ?
+                <input type={"image"} src={"./images/favorites-on.png"} alt={""} onClick={() => {onClick(id)}}/>
+            :
+                (<input type={"image"} src={"./images/favorites-off.png"} alt={""} onClick={() => {onClick(id)}}/>)}
         </div>
     )
 }
 
 FavoritesStars.propTypes = {
-    addFavorites: PropTypes.array,
-    onAddFavorites: PropTypes.func,
-    id: PropTypes.number,
+    id: PropTypes.string,
+    isFav: PropTypes.bool,
+    onClick: PropTypes.func,
+}
+
+FavoritesStars.defaultProps = {
+    isFav: false,
 }
 
 export default FavoritesStars;

@@ -1,0 +1,116 @@
+[
+  {
+    "name": "Shalby",
+    "price": "350",
+    "url": "./images/product/1.png",
+    "article": "1",
+    "color": "blue-pink"
+  },
+  {
+    "name": "Hubba",
+    "price": "350",
+    "url": "./images/product/2.png",
+    "article": "2",
+    "color": "darkblue-blue"
+  },
+  {
+    "name": "Paul",
+    "price": "350",
+    "url": "./images/product/3.png",
+    "article": "3",
+    "color": "dark-gray"
+  },
+  {
+    "name": "Figaro",
+    "price": "350",
+    "url": "./images/product/4.png",
+    "article": "4",
+    "color": "dark-red"
+  },
+  {
+    "name": "Citrus",
+    "price": "350",
+    "url": "./images/product/5.png",
+    "article": "5",
+    "color": "orange-yellow"
+  },
+  {
+    "name": "Amur",
+    "price": "350",
+    "url": "./images/product/6.png",
+    "article": "6",
+    "color": "darkpink-pink"
+  },
+  {
+    "name": "Sparky",
+    "price": "250",
+    "url": "./images/product/7.png",
+    "article": "7",
+    "color": "green-blue"
+  },
+  {
+    "name": "Flaur",
+    "price": "250",
+    "url": "./images/product/8.png",
+    "article": "8",
+    "color": "white"
+  },
+  {
+    "name": "Appa",
+    "price": "250",
+    "url": "./images/product/9.png",
+    "article": "9",
+    "color": "green"
+  },
+  {
+    "name": "Dapper",
+    "price": "250",
+    "url": "./images/product/10.png",
+    "article": "10",
+    "color": "orange"
+  },
+  {
+    "name": "Acvus",
+    "price": "250",
+    "url": "./images/product/11.png",
+    "article": "11",
+    "color": "pink"
+  },
+  {
+    "name": "Oushen",
+    "price": "250",
+    "url": "./images/product/12.png",
+    "article": "12",
+    "color": "purple"
+  },
+  {
+    "name": "Morky",
+    "price": "250",
+    "url": "./images/product/13.png",
+    "article": "13",
+    "color": "blue"
+  },
+  {
+    "name": "Brutas",
+    "price": "250",
+    "url": "./images/product/14.png",
+    "article": "14",
+    "color": "gray-rainbow"
+  },
+  {
+    "name": "Wondy",
+    "price": "250",
+    "url": "./images/product/15.png",
+    "article": "15",
+    "color": "dark-orange"
+  },
+  {
+    "name": "Muvar",
+    "price": "250",
+    "url": "./images/product/16.png",
+    "article": "16",
+    "color": "light-orange"
+  }
+]
+
+

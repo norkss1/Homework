@@ -1,8 +1,6 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import PropTypes from 'prop-types';
-import Modal from "./Modal";
-import Button from "./Button";
 
 class ProductsList extends React.Component {
 
@@ -12,24 +10,6 @@ class ProductsList extends React.Component {
         error: null,
         addFavorites: localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [],
         shopBasket: localStorage.getItem('shop-basket') ? JSON.parse(localStorage.getItem('shop-basket')) : [],
-        isOpen: false,
-        idModal: null,
-    }
-
-    switchModal = (id) => {
-        if (!this.state.idModal) {
-            this.setState({
-                idModal: id,
-            })
-        } else {
-            this.setState({
-                idModal: null
-            })
-        }
-
-        this.setState({
-            isOpen: !this.state.isOpen,
-        })
     }
 
     onAddFavorites = (selected) => {
@@ -65,7 +45,7 @@ class ProductsList extends React.Component {
 
 
     render() {
-        const {products, isLoading, error, addFavorites, isOpen, idModal} = this.state;
+        const {products, isLoading, error, addFavorites} = this.state;
 
         return (
             <div className={"product-list"}>
@@ -74,48 +54,21 @@ class ProductsList extends React.Component {
                 {products && !products.length && <div>No products</div>}
                 {products && products.map(product => {
                     return (
-                        <div className={"product-card"} id={product.article} key={product.article}>
+                        <div className={"product-card"} key={product.article}>
                             <ProductCard
                                 name={product.name}
                                 url={product.url}
                                 price={product.price}
                                 addFavorites={addFavorites}
                                 onAddFavorites={this.onAddFavorites}
-                                // onClickAddToCart={this.onClickAddToCart}
-                                onClick={this.switchModal}
+                                onClickAddToCart={this.onClickAddToCart}
                                 id={product.article}
                             />
-
-                            {isOpen && idModal === product.article && <Modal
-                                theme={"add"}
-                                header={'Do you want delete this file?'}
-                                closeButton={false}
-                                text={'Once you delete this file, it won\'t be possible to undo this action. Are you sure you want to delete it?'}
-                                onBackClick={this.switchModal}
-                                actions={
-                                    <div className="containerButton containerButton_add">
-                                        <Button
-                                            className="modalBtn modalBtn-ok"
-                                            text={"Ok"}
-                                            onClick={() => {
-                                                this.onClickAddToCart(product.article);
-                                                this.switchModal();
-                                            }
-                                            }
-                                        />
-                                        <Button
-                                            className="modalBtn modalBtn-cancel modalBtn1-cancel"
-                                            text={"Cancel"}
-                                            onClick={this.switchModal}
-                                        />
-                                    </div>}
-                            />}
                         </div>
                     )
                 })}
             </div>
         )
-
     }
 }
 
@@ -130,6 +83,7 @@ ProductsList.propTypes = {
     addFavorites: PropTypes.array,
     shopBasket: PropTypes.array
 };
+
 
 
 export default ProductsList;
