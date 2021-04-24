@@ -81,7 +81,6 @@ class ProductsList extends React.Component {
                                 price={product.price}
                                 addFavorites={addFavorites}
                                 onAddFavorites={this.onAddFavorites}
-                                // onClickAddToCart={this.onClickAddToCart}
                                 onClick={this.switchModal}
                                 id={product.article}
                             />
@@ -115,7 +114,6 @@ class ProductsList extends React.Component {
                 })}
             </div>
         )
-
     }
 }
 

@@ -1,7 +1,6 @@
 import React from "react";
 import '../styles/Product.scss'
 import Button from './Button';
-import Modal from './Modal';
 import PropTypes from 'prop-types';
 import FavoritesStars from "./FavoritesStars";
 
@@ -10,7 +9,6 @@ class ProductCard extends React.Component {
         super(props);
 
         this.state = {
-            // open: false,
             isFav: false,
         }
     }
@@ -37,7 +35,6 @@ class ProductCard extends React.Component {
     }
 
     render() {
-        // const {open} = this.state;
         const {name, price, url, id, onClick} = this.props;
 
         return (
@@ -57,31 +54,6 @@ class ProductCard extends React.Component {
                     text={"Add to cart"}
                     onClick={() => {onClick(id)}}
                 />
-
-                {/*{(open) && <Modal*/}
-                {/*    theme={"add"}*/}
-                {/*    header={'Do you want delete this file?'}*/}
-                {/*    closeButton={false}*/}
-                {/*    text={'Once you delete this file, it won\'t be possible to undo this action. Are you sure you want to delete it?'}*/}
-                {/*    onBackClick={this.switchModal}*/}
-                {/*    actions={*/}
-                {/*        <div className="containerButton containerButton_add">*/}
-                {/*            <Button*/}
-                {/*                className="modalBtn modalBtn-ok"*/}
-                {/*                text={"Ok"}*/}
-                {/*                onClick={() => {*/}
-                {/*                    onClickAddToCart(id);*/}
-                {/*                    this.switchModal();*/}
-                {/*                }*/}
-                {/*                }*/}
-                {/*            />*/}
-                {/*            <Button*/}
-                {/*                className="modalBtn modalBtn-cancel modalBtn1-cancel"*/}
-                {/*                text={"Cancel"}*/}
-                {/*                onClick={this.switchModal}*/}
-                {/*            />*/}
-                {/*        </div>}*/}
-                {/*/>}*/}
             </>
         )
     }
@@ -89,7 +61,6 @@ class ProductCard extends React.Component {
 
 
 ProductCard.propTypes = {
-    // open: PropTypes.bool,
     FavoritesStars: PropTypes.elementType,
 };
 
