@@ -23,6 +23,23 @@
   }
 }
 
+.blockedModal {
+  box-sizing: border-box;
+  padding: 20px 0;
+
+  width: 200px;
+
+  border-radius: 5px;
+  border: 1px solid black;
+
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  background-color: #83c2b1;
+}
+
 
 // Modal-Btn
 

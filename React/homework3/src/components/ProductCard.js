@@ -1,82 +1,43 @@
 import React from "react";
 import '../styles/Product.scss'
 import Button from './Button';
-import Modal from './Modal';
-import FavoritesStars from './FavoritesStars';
-import PropTypes from 'prop-types';
-
-class ProductCard extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            open: false,
-        }
-    }
-
-    switchModal = () => {
-        this.setState({
-            open: !this.state.open,
-        })
-    }
+import FavoritesStars from "./FavoritesStars";
 
 
-    render() {
-        const {open} = this.state;
-        const {name, price, url, addFavorites, onAddFavorites, onClickAddToCart, id} = this.props;
+const ProductCard = (props) => {
 
-        return (
-            <>
-                <div className={"product-card-img"}>
-                    <img src={url} alt={name}/>
-                    <FavoritesStars
-                        addFavorites={addFavorites}
-                        onAddFavorites={onAddFavorites}
-                        id={id}
-                    />
-                </div>
-                <h3 className={"product-card-title"}>{name}</h3>
-                <h4 className={"product-card-price"}>{price} {<span>UAH</span>}</h4>
-                <Button
-                    className="openModal"
-                    text={"Add to cart"}
-                    onClick={this.switchModal}
+    const {product, onFavoritesClick, onAddToCartClick, onDeleteClick} = props;
+    const {name, price, url, id, isFavorite} = product;
+
+    return (
+        <>
+            <div className={"product-cart-img"}>
+                <img src={url} alt={name}/>
+                {onFavoritesClick &&
+                <FavoritesStars
+                    id={id}
+                    isFav={isFavorite}
+                    onClick={onFavoritesClick}
                 />
-
-                {(open) && <Modal
-                    theme={"add"}
-                    header={'Do you want delete this file?'}
-                    closeButton={false}
-                    text={'Once you delete this file, it won\'t be possible to undo this action. Are you sure you want to delete it?'}
-                    onBackClick={this.switchModal}
-                    actions={
-                        <div className="containerButton containerButton_add">
-                            <Button
-                                className="modalBtn modalBtn-ok"
-                                text={"Ok"}
-                                onClick={() => {
-                                    onClickAddToCart(id);
-                                    this.switchModal();
-                                    }
-                                }
-                            />
-                            <Button
-                                className="modalBtn modalBtn-cancel modalBtn1-cancel"
-                                text={"Cancel"}
-                                onClick={this.switchModal}
-                            />
-                        </div>}
-                />}
-            </>
-        )
-    }
+                }
+                {onDeleteClick &&
+                <div className={"product-cart-overlay"} onClick={onDeleteClick}>
+                    <img src={"./images/cancel.png"}/>
+                </div>}
+            </div>
+            <h3 className={"product-cart-title"}>{name}</h3>
+            <h4 className={"product-cart-price"}>{price} {<span>UAH</span>}</h4>
+            {onAddToCartClick &&
+            <Button
+                className={!product.count ? "openModal": "blockedModal"}
+                text={!product.count ? "Add to cart": "Product be added"}
+                onClick={onAddToCartClick}
+                disabled={product.count}
+            />
+            }
+        </>
+    )
 }
-
-
-ProductCard.propTypes = {
-    open: PropTypes.bool,
-    FavoritesStars: PropTypes.elementType,
-};
 
 ProductCard.defaultProps = {
     addFavorites: [],

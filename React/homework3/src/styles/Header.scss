@@ -1,0 +1,38 @@
+
+header {
+  background-color: #96d0c6;
+  border-radius: 25px 0;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+
+  li {
+    margin-right: 100px;
+
+    a {
+      font-size: 20px;
+      font-weight: 600;
+      color: #b141c5;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: color .2s linear;
+    }
+
+    a.active {
+      border-bottom: 2px solid #b141c5;
+    }
+
+    a:hover {
+      color: #4932d6
+    }
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}
+

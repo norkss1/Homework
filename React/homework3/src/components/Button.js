@@ -2,15 +2,13 @@ import React from "react";
 import '../styles/Buttons.scss'
 import PropTypes from 'prop-types';
 
-class Button extends React.Component {
 
-    render() {
-        const { className, text, onClick} = this.props;
+const Button = (props) => {
+    const {className, text, onClick, disabled} = props;
 
-        return (
-                <button className={className} onClick={onClick}>{text}</button>
-        )
-    }
+    return (
+        <button disabled={disabled ? "disabled" : ""} className={className} onClick={onClick}>{text}</button>
+    )
 }
 
 Button.propTypes = {

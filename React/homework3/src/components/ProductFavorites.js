@@ -1,15 +1,15 @@
-import React from "react";
 import ProductCard from "./ProductCard";
+import React from "react";
 import PropTypes from 'prop-types';
 
-const ProductsList = (props) => {
+const ProductsFavorites = (props) => {
 
     const {products, onAddFavorites, onClickAddToCart} = props;
 
     return (
         <>
             <div className={"product-list"}>
-                {products && !products.length && <div>There are no products at the moment</div>}
+                {!products.length && <div>There are no favorites at the moment</div>}
                 {products && products.map(product => {
                     return (
                         <div className={"product-cart"} id={product.article} key={product.article}>
@@ -26,11 +26,11 @@ const ProductsList = (props) => {
     )
 }
 
-ProductsList.propTypes = {
+ProductsFavorites.propTypes = {
     products: PropTypes.array,
     onAddFavorites: PropTypes.func,
     onClickAddToCart: PropTypes.func,
 };
 
 
-export default ProductsList;
+export default ProductsFavorites;
