@@ -74,6 +74,7 @@ const App = () => {
     useEffect(() => {
         setIsLoading(true);
 
+
         fetch(`${PRODUCT_LINK}`).then(res => {
             if (res.ok) {
                 return res.json();

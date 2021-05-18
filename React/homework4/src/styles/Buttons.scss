@@ -1,0 +1,117 @@
+// Btn - Open - Modal
+.openModal {
+  box-sizing: border-box;
+  padding: 20px 0;
+
+  width: 200px;
+
+  border-radius: 5px;
+  border: 1px solid black;
+
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  background-color: #f1bdf1;
+
+  transition: color .2s linear, background-color .2s linear;
+
+  &:hover {
+    color: #fff;
+    background-color: #b89af1;
+  }
+}
+
+.blockedModal {
+  box-sizing: border-box;
+  padding: 20px 0;
+
+  width: 200px;
+
+  border-radius: 5px;
+  border: 1px solid black;
+
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  background-color: #83c2b1;
+}
+
+
+// Modal-Btn
+
+.containerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5px;
+  padding-bottom: 20px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modalBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 15px 40px;
+  max-width: 100px;
+
+  border-radius: 5px;
+  border: none;
+
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+  transition: font-size .2s linear;
+}
+
+.modalBtn:focus {
+  outline: none;
+}
+
+
+.modalBtn-cancel {
+  margin-left: 10px;
+
+}
+
+.modalBtn1-cancel:focus {
+  outline: none;
+}
+
+
+//--------------------Modal-add
+.containerButton_add {
+  background-color: #bd4ec7;
+
+  .modalBtn-ok {
+    background-color: rgb(124, 50, 171);
+  }
+
+  .modalBtn-cancel {
+    background-color: rgb(124, 50, 171);
+  }
+}
+
+
+
+//--------------------Modal-theme-2
+.containerButton_2 {
+  background-color: #e74c3c;
+}
+
+
+
+
+
+
+
+
+

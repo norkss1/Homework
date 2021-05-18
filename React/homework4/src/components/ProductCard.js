@@ -9,7 +9,6 @@ const ProductCard = (props) => {
     const {product, onFavoritesClick, onAddToCartClick, onDeleteClick} = props;
     const {name, price, url, id, isFavorite} = product;
 
-
     return (
         <>
             <div className={"product-cart-img"}>
