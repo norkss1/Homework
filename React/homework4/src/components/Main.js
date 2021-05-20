@@ -28,8 +28,6 @@ const Main = () => {
         shopBasket: state.shopBasket
     }))
 
-
-
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -74,13 +72,11 @@ const Main = () => {
 
             </Switch>}
 
-
             {confirm && <Modal
                 theme={"add"}
                 header={confirm.actionType === "add"
                     ? 'Do you want add this product?'
                     : 'Do you want delete this product?'}
-                closeButton={false}
                 text={confirm.actionType === "add"
                     ? 'Are you sure you want to add this product?'
                     : 'Once you delete this product, it won\'t be possible to undo this action. Are you sure you want to delete it?'}

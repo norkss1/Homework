@@ -86,7 +86,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
 
         case CONFIRM_ACTION:
             return {
-                ...store,
+                ...state,
                 confirmAction: action.payload,
             };
 
@@ -96,8 +96,8 @@ export const reducer = (state = INITIAL_STATE, action) => {
     }
 }
 
-
 export const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+
 
 store.subscribe(() => {
     localStorage.setItem(

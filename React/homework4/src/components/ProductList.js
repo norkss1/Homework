@@ -27,7 +27,6 @@ const ProductsList = (props) => {
                                 product={product}
                                 onFavoritesClick={() => dispatch(switchFav(product.article))}
                                 onAddToCartClick={() => {
-                                    console.log('Click add card')
                                     dispatch(confirmAction({
                                         actionType: "add",
                                         id: product.article,
