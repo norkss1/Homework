@@ -3,7 +3,6 @@ import {Route, Switch} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 
 import ProductsList from './ProductList'
-import ProductsFavorites from "./ProductFavorites";
 import ProductCart from "./ProductCart";
 import Modal from "./Modal";
 import Button from "./Button";
@@ -43,7 +42,6 @@ const Main = () => {
         }
     }
 
-
     return (
         <>
             {isLoading && <div>Loading</div>}
@@ -56,7 +54,7 @@ const Main = () => {
                 />
 
                 <Route exact path={'/favorites'} render={() =>
-                    <ProductsFavorites
+                    <ProductsList
                         products={products.filter((product) => addFavorites.includes(product.article)).map(mapProductWithFavorite)}
                     />}
                 />
@@ -64,8 +62,7 @@ const Main = () => {
                 <Route exact path={'/cart'} render={() =>
                     <ProductCart
                         products={products.filter((product) =>
-                            shopBasket.find(item => item.id === product.article)
-                        ).map(mapProductWithFavorite)
+                            shopBasket.find(item => item.id === product.article)).map(mapProductWithFavorite)
                         }
                     />}
                 />

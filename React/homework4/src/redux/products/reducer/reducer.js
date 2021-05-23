@@ -6,15 +6,9 @@ import {
     ADD_TO_CART,
     DELETE_FROM_CART,
     SWITCH_FAV,
-    MAP_RPODUCT_WITH_FAVORITE,
     CONFIRM_ACTION,
 
 } from "../actions/actions";
-
-
-import {applyMiddleware, createStore} from "redux";
-import {composeWithDevTools} from "redux-devtools-extension";
-import thunk from "redux-thunk";
 
 
 const INITIAL_STATE = {
@@ -24,6 +18,7 @@ const INITIAL_STATE = {
     confirmAction: null,
     addFavorites: localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [],
     shopBasket: localStorage.getItem('shop-basket') ? JSON.parse(localStorage.getItem('shop-basket')) : [],
+    isFavorite: false,
 }
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -74,14 +69,9 @@ export const reducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 addFavorites: state.addFavorites.includes(action.payload) ?
                     state.addFavorites.filter((n) => n !== action.payload) :
-                    [...state.addFavorites, action.payload]
-            }
-
-        case MAP_RPODUCT_WITH_FAVORITE:
-            return {
-                ...state,
+                    [...state.addFavorites, action.payload],
                 isFavorite: state.addFavorites.includes(action.payload),
-                count: state.shopBasket.find((item) => item.id === action.payload)?.count,
+
             }
 
         case CONFIRM_ACTION:
@@ -95,17 +85,3 @@ export const reducer = (state = INITIAL_STATE, action) => {
             return state;
     }
 }
-
-export const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
-
-
-store.subscribe(() => {
-    localStorage.setItem(
-        "shop-basket",
-        JSON.stringify(store.getState().shopBasket)
-    );
-    localStorage.setItem(
-        "favorites",
-        JSON.stringify(store.getState().addFavorites)
-    );
-});

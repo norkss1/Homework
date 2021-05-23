@@ -1,13 +1,9 @@
 import ProductCard from "./ProductCard";
 import React from "react";
-import {confirmAction, switchFav} from "../redux/products/actions/actions";
-import {useDispatch} from "react-redux";
 
 const ProductCart = (props) => {
 
     const {products} = props;
-
-    const dispatch = useDispatch();
 
     return (
         <>
@@ -18,11 +14,7 @@ const ProductCart = (props) => {
                         <div className={"product-cart"} id={product.article} key={product.article}>
                             <ProductCard
                                 product={product}
-                                onFavoritesClick={() => dispatch(switchFav(product.article))}
-                                onDeleteClick={() => dispatch(confirmAction({
-                                    actionType: "delete",
-                                    id: product.article,
-                                }))}
+                                onDeleteClick={true}
                             />
                         </div>
                     )

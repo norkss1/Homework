@@ -1,20 +1,10 @@
 import React from "react";
-import {useDispatch} from "react-redux";
-
 import ProductCard from "./ProductCard";
 import PropTypes from 'prop-types';
-
-import {
-    switchFav,
-    confirmAction,
-} from "../redux/products/actions/actions"
-
 
 const ProductsList = (props) => {
 
     const {products} = props;
-
-    const dispatch = useDispatch();
 
     return (
         <>
@@ -25,13 +15,6 @@ const ProductsList = (props) => {
                         <div className={"product-cart"} id={product.article} key={product.article}>
                             <ProductCard
                                 product={product}
-                                onFavoritesClick={() => dispatch(switchFav(product.article))}
-                                onAddToCartClick={() => {
-                                    dispatch(confirmAction({
-                                        actionType: "add",
-                                        id: product.article,
-                                    }))
-                                }}
                             />
                         </div>
                     )

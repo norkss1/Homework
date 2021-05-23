@@ -39,15 +39,7 @@ export const switchFav = (id) => ({
     payload: id,
 });
 
-export const mapProductWithFavorite = (product) => ({
-    type: MAP_RPODUCT_WITH_FAVORITE,
-    payload: product.article,
-});
-
 export const confirmAction = (action) => ({
     type: CONFIRM_ACTION,
     payload: action,
 });
-
-
-
